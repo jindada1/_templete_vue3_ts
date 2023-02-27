@@ -12,6 +12,10 @@ export default defineConfig({
   },
   // 打包后的根路径
   base: "/",
+  // 打包产物存放的目录
+  // build: {
+  //   outDir: '../static'
+  // },
   // 开发时的代理
   server: {
     proxy: {
