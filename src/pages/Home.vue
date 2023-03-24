@@ -1,15 +1,10 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import { useStore } from "@/store";
+import { useCounterStore } from "@/store/counter";
 
-const count = ref(0);
-
-const store = useStore();
+const store = useCounterStore();
 const increment = () => {
-  count.value++;
-  store.commit("increment");
+  store.increment();
 };
-
 </script>
 
 <template>
@@ -29,7 +24,7 @@ const increment = () => {
   </p>
 
   <a-button type="primary" @click="increment"
-    >click in this page: {{ count }}</a-button
+    >click in this page: {{ store.count }}</a-button
   >
 </template>
 

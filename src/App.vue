@@ -9,11 +9,11 @@
 </template>
 
 <script setup lang="ts">
-import { useStore } from "@/store";
+import { useCounterStore } from "@/store/counter";
 import { computed } from 'vue'
 
-const store = useStore();
-const count = computed(() => store.state.count)
+const store = useCounterStore();
+const count = computed(() => store.count)
 </script>
 
 <style>
