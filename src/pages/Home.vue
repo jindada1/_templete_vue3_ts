@@ -1,10 +1,7 @@
 <script setup lang="ts">
-import { useCounterStore } from "@/store/counter";
+import { useUserStore } from "@/store/user";
 
-const store = useCounterStore();
-const increment = () => {
-  store.increment();
-};
+const userStore = useUserStore();
 </script>
 
 <template>
@@ -14,18 +11,6 @@ const increment = () => {
     +
     <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>
   </p>
-
-  <p>
-    <a href="https://vitejs.dev/guide/features.html" target="_blank">
-      Vite Docs
-    </a>
-    |
-    <a href="https://v3.vuejs.org/" target="_blank">Vue 3 Docs</a>
-  </p>
-
-  <a-button type="primary" @click="increment">
-    click in this page: {{ store.count }}
-  </a-button>
 </template>
 
 <style scoped>

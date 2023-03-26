@@ -1,19 +1,19 @@
 <template>
   <div>
     <router-link to="/">home</router-link>|
-    <router-link to="/hello">hello</router-link>
+    <router-link to="/sign">sign</router-link>
   </div>
   <img alt="Vue logo" src="./assets/logo.png" />
-  <div>{{ count }}</div>
+  <div>{{ userName }}</div>
   <router-view></router-view>
 </template>
 
 <script setup lang="ts">
-import { useCounterStore } from "@/store/counter";
-import { computed } from 'vue'
+import { computed } from "vue";
+import { useUserStore } from "@/store/user";
 
-const store = useCounterStore();
-const count = computed(() => store.count)
+const store = useUserStore();
+const userName = computed(() => store.getUserInfo?.username)
 </script>
 
 <style>

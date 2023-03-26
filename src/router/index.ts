@@ -1,16 +1,17 @@
 import type { App } from 'vue'
+import { BASE_ROUTE } from "@/common/constants";
 import { createWebHistory, createRouter } from "vue-router";
 
 const router = createRouter({
-    history : createWebHistory(import.meta.env.BASE_URL),
+    history : createWebHistory(BASE_ROUTE),
     routes: [
         {
             path: '/',
             component: () => import("@/pages/Home.vue")
         },
         {
-            path: '/hello',
-            component: () => import("@/pages/HelloWorld.vue")
+            path: '/sign',
+            component: () => import("@/pages/Sign.vue")
         }
     ]
 })

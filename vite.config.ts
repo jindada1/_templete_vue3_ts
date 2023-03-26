@@ -10,14 +10,15 @@ export default defineConfig({
       "@": resolve(__dirname, "./src"),
     },
   },
-  // 打包后的根路径
+  // 根路由
   base: "/",
   // 打包产物存放的目录
   // build: {
   //   outDir: '../static'
   // },
-  // 开发时的代理
+  // 开发服务器
   server: {
+    port: 7777,
     proxy: {
       "/dev": {
         target: 'http://106.14.244.78:8888',
