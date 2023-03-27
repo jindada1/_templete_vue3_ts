@@ -8,6 +8,8 @@ export const REQUEST_BASE_URL = isDevMode() ? '/dev/': '/';
 
 export const BASE_ROUTE = import.meta.env.BASE_URL;
 
+export const IGNORE_AUTH = true;
+
 /** 缓存的 KEY */
 export const TOKEN_KEY = 'TOKEN__';
 
