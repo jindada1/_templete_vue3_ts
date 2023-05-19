@@ -38,6 +38,7 @@ export function setPermissionGuard(router: Router) {
       const redirectData: RedirectParams = {
         path: PAGE_LOGIN,
         replace: true,
+        query: {}
       };
 
       if (to.path) {
