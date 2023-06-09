@@ -6,10 +6,6 @@ const app = createApp(App);
 import router, { setupRouter } from "@/router";
 setupRouter(app);
 
-// 设置路由访问的权限
-import { setPermissionGuard } from "@/router/permission";
-setPermissionGuard(router);
-
 import { setupAntd } from "@/libs/antdv";
 setupAntd(app);
 
