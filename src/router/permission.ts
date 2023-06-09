@@ -1,8 +1,8 @@
 import type { Router } from "vue-router";
 import { useUserStore } from "@/store/user";
-import { BASE_ROUTE, IGNORE_AUTH } from "@/common/constants";
+import { IGNORE_AUTH } from "@/common/constants";
 
-const PAGE_ROOT = BASE_ROUTE;
+const PAGE_ROOT = '/';
 const PAGE_LOGIN = "/sign";
 const PAGE_404 = "/exception";
 
