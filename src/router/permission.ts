@@ -15,7 +15,8 @@ interface RedirectParams {
 }
 
 export function setPermissionGuard(router: Router) {
-  router.beforeEach(async (to, from, next) => {
+  router.beforeEach((to, from, next) => {
+
     // whitelist can be directly entered
     if (IGNORE_AUTH || whiteList.includes(to.path)) {
       next();
@@ -24,6 +25,19 @@ export function setPermissionGuard(router: Router) {
 
     const userStore = useUserStore();
     const token = userStore.getToken;
+
+    function toLogin() {
+      // redirect login page
+      const redirectData: RedirectParams = {
+        path: PAGE_LOGIN,
+        replace: true,
+        query: {}
+      };
+      if (to.path) {
+        redirectData.query.redirect = to.path
+      }
+      next(redirectData);
+    }
 
     // token or user does not exist
     if (!token) {
@@ -34,20 +48,14 @@ export function setPermissionGuard(router: Router) {
         return;
       }
 
-      // redirect login page
-      const redirectData: RedirectParams = {
-        path: PAGE_LOGIN,
-        replace: true,
-        query: {}
-      };
-
-      if (to.path) {
-        redirectData.query.redirect = to.path
-      }
-      next(redirectData);
+      toLogin();
       return;
     }
 
-    next();
+    userStore.getUserInfoAction()
+      .then(() => next())
+      .catch(() => {
+        toLogin();
+      })
   });
 }
